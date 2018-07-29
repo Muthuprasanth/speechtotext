@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "version": "",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "array-unique": "^0.3.2",
+    "audiobuffer-to-wav": "^1.0.0",
+    "base-64": "^0.1.0",
+    "bingspeech-api-client": "^2.5.0",
+    "cors": "^2.8.4",
+    "docx-extractor": "^1.1.4",
+    "dotenv": "^5.0.1",
+    "download-file": "^0.1.5",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "promise-retry": "^1.1.1",
+    "request-promise": "^4.2.2",
+    "sleep-promise": "^8.0.1",
+    "string-similarity": "^1.2.0",
+    "url": "^0.11.0",
+    "web-audio-api": "^0.2.2",
+    "word-extractor": "^0.1.4"
+  }
+}
