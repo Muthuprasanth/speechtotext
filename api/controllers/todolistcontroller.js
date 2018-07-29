@@ -25,12 +25,12 @@ exports.list_all_tasks =  function (req, res) {
 
   console.log("success");
   var filename = "wavoutput_1.wav";
-  //var url = req.query.url;
-  //var token = req.query.token;
-  //console.log("url "+url);
-  //console.log("token "+token);
-  var url = "https://smba.trafficmanager.net/apis/v3/attachments/0-sa-d5-725f8af72e3c8a60696c06f40d8f0e59/views/original";
-  var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJodHRwczovL2FwaS5ib3RmcmFtZXdvcmsuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiLyIsImlhdCI6MTUzMjg3ODM0MSwibmJmIjoxNTMyODc4MzQxLCJleHAiOjE1MzI4ODIyNDEsImFpbyI6IjQyQmdZTmlUYnpCcDk0R0VRejdYWlQrRWlreGVBQUE9IiwiYXBwaWQiOiJiMjM3NTNmZS1hNjk1LTRmMWMtYTk0YS04NmZjM2EwZWI4YzgiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNmQ0OTQyMC1mMzliLTRkZjctYTFkYy1kNTlhOTM1ODcxZGIvIiwidGlkIjoiZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiIiwidXRpIjoiTVNmRGh1SFdxMGljRzdldkpfUUZBQSIsInZlciI6IjEuMCJ9.C0PaDWeORRzEU6Qdgc5U6bV8wD7UmCb64df1iVEH5JpqD5ERZbbayJbMaOE75ewrm_FYkCM4Sa4ligrvDzxaK9zMRQIM3J0DscQ3qKA--EUCJE6_edfgAeRU41ZxSuu-BCg_bFMWZf4ZePN-cSzelJQP7BGjZfLqaudb8dZgkoWzyb4fQOoG0a92FjvoD6wr3wyeSRJK61VX1BQBjMt3uML7UAhQNRkekq3P1mxEYEdODgmnW-wdm2vDPHRKWGX4mUI1SrMe9u3jBS72gJesj4RgDyvvVmdGsTN9Q4l2k4bTRnT1vJc9dpzrYvRb9jLcJ6beitI0fe90UZ5yi2puyg";
+  var url = req.query.url;
+  var token = req.query.token;
+  console.log("url "+url);
+  console.log("token "+token);
+  //var url = "https://smba.trafficmanager.net/apis/v3/attachments/0-sa-d5-725f8af72e3c8a60696c06f40d8f0e59/views/original";
+  //var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJodHRwczovL2FwaS5ib3RmcmFtZXdvcmsuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiLyIsImlhdCI6MTUzMjg3ODM0MSwibmJmIjoxNTMyODc4MzQxLCJleHAiOjE1MzI4ODIyNDEsImFpbyI6IjQyQmdZTmlUYnpCcDk0R0VRejdYWlQrRWlreGVBQUE9IiwiYXBwaWQiOiJiMjM3NTNmZS1hNjk1LTRmMWMtYTk0YS04NmZjM2EwZWI4YzgiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNmQ0OTQyMC1mMzliLTRkZjctYTFkYy1kNTlhOTM1ODcxZGIvIiwidGlkIjoiZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiIiwidXRpIjoiTVNmRGh1SFdxMGljRzdldkpfUUZBQSIsInZlciI6IjEuMCJ9.C0PaDWeORRzEU6Qdgc5U6bV8wD7UmCb64df1iVEH5JpqD5ERZbbayJbMaOE75ewrm_FYkCM4Sa4ligrvDzxaK9zMRQIM3J0DscQ3qKA--EUCJE6_edfgAeRU41ZxSuu-BCg_bFMWZf4ZePN-cSzelJQP7BGjZfLqaudb8dZgkoWzyb4fQOoG0a92FjvoD6wr3wyeSRJK61VX1BQBjMt3uML7UAhQNRkekq3P1mxEYEdODgmnW-wdm2vDPHRKWGX4mUI1SrMe9u3jBS72gJesj4RgDyvvVmdGsTN9Q4l2k4bTRnT1vJc9dpzrYvRb9jLcJ6beitI0fe90UZ5yi2puyg";
   var fileDownload  = getfile(url,token);
     fileDownload.then(function (resp) {
       // Send reply with attachment type & size
@@ -62,7 +62,7 @@ exports.list_all_tasks =  function (req, res) {
         console.log("response is ",response.results[0]);
         var s = {text:response.results[0].name}
       //  var s1 = JSON.stringify(response.results[0].name);
-        console.log("After stringify  ",s);
+        console.log("output ",s);
        // console.log("After stringify  ",JSON.parse(s1));
         res.send(s);
       //  resolve(response.results[0].name);
