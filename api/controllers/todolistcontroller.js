@@ -65,8 +65,8 @@ exports.list_all_tasks =  function (req, res) {
         console.log("output ",s);
        // console.log("After stringify  ",JSON.parse(s1));
        res.setHeader('Content-Type', 'application/json');
-       res.send(JSON.stringify(s));
-      // res.send(s);
+     //  res.send(JSON.stringify(s));
+       res.send(s);
       //  resolve(response.results[0].name);
         }).catch(function(error)
         {
