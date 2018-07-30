@@ -24,7 +24,7 @@ function getfile(url,token)
 exports.list_all_tasks =  function (req, res) {
 
   console.log("success");
-  var filename = "wavoutput_1.wav";
+  var filename = "wavoutput.wav";
   var url = req.query.url;
   var token = req.query.token;
   console.log("url "+url);
@@ -50,7 +50,7 @@ exports.list_all_tasks =  function (req, res) {
       // Do something
     }
       fs.appendFile(filename, new Buffer(chunk), function (err) {
-        let audioStream = fs.createReadStream("filename"); // create audio stream from any source
+        let audioStream = fs.createReadStream(filename); // create audio stream from any source
         // Bing Speech Key (https://www.microsoft.com/cognitive-services/en-us/subscriptions)
         let subscriptionKey = 'c9a70ce52aae4bb592fcb80099cd2b8b';        
         let client = new BingSpeechClient(subscriptionKey);
