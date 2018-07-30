@@ -50,7 +50,7 @@ exports.list_all_tasks =  function (req, res) {
       // Do something
     }
       fs.appendFile(filename, new Buffer(chunk), function (err) {
-        let audioStream = fs.createReadStream("wavoutput.wav"); // create audio stream from any source
+        let audioStream = fs.createReadStream("filename"); // create audio stream from any source
         // Bing Speech Key (https://www.microsoft.com/cognitive-services/en-us/subscriptions)
         let subscriptionKey = 'c9a70ce52aae4bb592fcb80099cd2b8b';        
         let client = new BingSpeechClient(subscriptionKey);
@@ -64,7 +64,9 @@ exports.list_all_tasks =  function (req, res) {
       //  var s1 = JSON.stringify(response.results[0].name);
         console.log("output ",s);
        // console.log("After stringify  ",JSON.parse(s1));
-        res.send(s);
+       res.setHeader('Content-Type', 'application/json');
+       res.send(JSON.stringify(s));
+      // res.send(s);
       //  resolve(response.results[0].name);
         }).catch(function(error)
         {
@@ -84,6 +86,7 @@ exports.list_all_tasks =  function (req, res) {
 /*
 if (fs.existsSync(path)) {
     fs.unlinkSync(filePath);
+    https://speechtotext-service-1.azurewebsites.net?url= https://smba.trafficmanager.net/apis/v3/attachments/0-sa-d5-33b7c395be140601bb5c97e3727a6c06/views/original&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJodHRwczovL2FwaS5ib3RmcmFtZXdvcmsuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiLyIsImlhdCI6MTUzMjg4NTA4NCwibmJmIjoxNTMyODg1MDg0LCJleHAiOjE1MzI4ODg5ODQsImFpbyI6IjQyQmdZSkRZdjhKcnkvR0ROMzRadmxPM1djVXlGUUE9IiwiYXBwaWQiOiJiMjM3NTNmZS1hNjk1LTRmMWMtYTk0YS04NmZjM2EwZWI4YzgiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNmQ0OTQyMC1mMzliLTRkZjctYTFkYy1kNTlhOTM1ODcxZGIvIiwidGlkIjoiZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiIiwidXRpIjoiZG9GUGMzUUVhVWFtV1FlMXhySUhBQSIsInZlciI6IjEuMCJ9.P1JjDhCaQxkd1R04zPh0exWo8SQ3F8CKjIfnEz9oh4wrcx8Jim94jh6INht6d6OIt1PRdRe5lOq94_cSOYMLQxCHQXFA6QgjicuH3tsL4kzSW_WmyczOOU8JrBXvVecckNaAOiyBYpLUj0qayVK0DgoigDoAcBLhpI0frYam5jRaHEZc9V3KrX6vcGRuWMawUoSBP1JhKb7T_xz3DlHc2tpTpk9bY8gs03MfdGRUnaOM4eSLr9ksk4BdzNMkAD3DKeg6HUkMoeORdGLziuYQF2VuZK5XdArc8o-l0L-EplnMjMyXNH2pz87iUuFcv-b7CUTGRgD2VKGtVR_E-frW5g
 }
-
+https://speechtotext-service-1.azurewebsites.net/speechtotext?url=%20https://smba.trafficmanager.net/apis/v3/attachments/0-sa-d5-33b7c395be140601bb5c97e3727a6c06/views/original&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJodHRwczovL2FwaS5ib3RmcmFtZXdvcmsuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiLyIsImlhdCI6MTUzMjg4NTA4NCwibmJmIjoxNTMyODg1MDg0LCJleHAiOjE1MzI4ODg5ODQsImFpbyI6IjQyQmdZSkRZdjhKcnkvR0ROMzRadmxPM1djVXlGUUE9IiwiYXBwaWQiOiJiMjM3NTNmZS1hNjk1LTRmMWMtYTk0YS04NmZjM2EwZWI4YzgiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNmQ0OTQyMC1mMzliLTRkZjctYTFkYy1kNTlhOTM1ODcxZGIvIiwidGlkIjoiZDZkNDk0MjAtZjM5Yi00ZGY3LWExZGMtZDU5YTkzNTg3MWRiIiwidXRpIjoiZG9GUGMzUUVhVWFtV1FlMXhySUhBQSIsInZlciI6IjEuMCJ9.P1JjDhCaQxkd1R04zPh0exWo8SQ3F8CKjIfnEz9oh4wrcx8Jim94jh6INht6d6OIt1PRdRe5lOq94_cSOYMLQxCHQXFA6QgjicuH3tsL4kzSW_WmyczOOU8JrBXvVecckNaAOiyBYpLUj0qayVK0DgoigDoAcBLhpI0frYam5jRaHEZc9V3KrX6vcGRuWMawUoSBP1JhKb7T_xz3DlHc2tpTpk9bY8gs03MfdGRUnaOM4eSLr9ksk4BdzNMkAD3DKeg6HUkMoeORdGLziuYQF2VuZK5XdArc8o-l0L-EplnMjMyXNH2pz87iUuFcv-b7CUTGRgD2VKGtVR_E-frW5g
 */
