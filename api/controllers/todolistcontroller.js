@@ -60,13 +60,13 @@ exports.list_all_tasks =  function (req, res) {
         console.log("response is ",response);
         console.log("-------------------------------------------------");
         console.log("response is ",response.results[0]);
-        var s = {"text":response.results[0].name}
+        var s = {"text":response.results[0].name};
       //  var s1 = JSON.stringify(response.results[0].name);
         console.log("output ",s);
        // console.log("After stringify  ",JSON.parse(s1));
        res.setHeader('Content-Type', 'application/json');
      //  res.send(JSON.stringify(s));
-       res.send(s);
+       res.send(response.results[0].name);
       //  resolve(response.results[0].name);
         }).catch(function(error)
         {
